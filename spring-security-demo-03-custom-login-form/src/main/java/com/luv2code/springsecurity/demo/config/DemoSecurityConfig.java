@@ -14,14 +14,14 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		// add our users for in memory authentication
-		
-				
+
+
 		auth.inMemoryAuthentication()
-			.withUser("john").password("test123").roles("EMPLOYEE");
+			.withUser("john").password("{noop}test123").roles("EMPLOYEE");
 		auth.inMemoryAuthentication()
-			.withUser("mary").password("test123").roles("MANAGER");
+			.withUser("mary").password("{noop}test123").roles("MANAGER");
 		auth.inMemoryAuthentication()
-			.withUser("susan").password("test123").roles("ADMIN");
+			.withUser("susan").password("{noop}test123").roles("ADMIN");
 
 	}
 
@@ -36,12 +36,12 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 					.loginProcessingUrl("/authenticateTheUser")
 					.permitAll();
 
-	}	
-	
-	
-	
-	
-	
-	
-	
+	}
+
+
+
+
+
+
+
 }
